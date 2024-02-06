@@ -1,0 +1,8 @@
+<filter
+  [inStock]="FilteredStockProducts"
+  [outofStock]="FilteredOutOfStockPropducts"
+  [all]="Totelproducts"
+></filter>
+<div class="ekart--products--container">
+  <product *ngFor="let prod of products" [product]="prod"></product>
+</div>
