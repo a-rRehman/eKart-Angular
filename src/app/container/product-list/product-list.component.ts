@@ -400,4 +400,14 @@ export class ProductListComponent {
   FilteredOutOfStockPropducts: number = this.products.filter(
     (p) => p.is_in_inventory === false
   ).length;
+
+  selectedFilteredRadioButton: string = "all";
+  // Now the catch was we had to recieve the value of radio button in parent (inside property above) Then we recieved the value. How?
+  // in child this.selectedFilterRadioButtonChanged.emit(this.selectedFilterRadioButton);
+  //you can see this value is passed in arguments (As was property in child holdihng the value of radio button).
+  //Then in parent html file inside child tag  (selectedFilterRadioButtonChanged)="onfilterChange($event)" we called function but in argument we catch that value
+  onfilterChange(value: string) {
+    console.log(value);
+    this.selectedFilteredRadioButton = value;
+  }
 }
